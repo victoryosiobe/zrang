@@ -1,2 +1,2 @@
 # zrang
-The first game I ever made. You have to target, else you loose it! Welcome to the zombie world.
+The first game I've made. You have to target, else you loose it! Welcome to the zombie world.
