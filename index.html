@@ -1,0 +1,146 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      background: rgb(8, 18, 35);
+    }
+
+    #can {
+      position: fixed;
+    }
+
+    .modal-background {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal {
+      position: fixed;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      text-align: center;
+    }
+
+    #performance,
+    #pause,
+    #guide {
+      display: none;
+    }
+
+    .pV {
+      padding: 1rem;
+      padding-bottom: 0;
+    }
+
+    .p {
+      padding: 0.5rem;
+      color: #00A9FF;
+    }
+
+    .play {
+      background: #0068FF;
+      color: white;
+      font-size: 2rem;
+      padding: 0.5rem;
+      border-radius: 0.7rem;
+    }
+
+    #guide-btn {
+      text-decoration: underline;
+      margin: 2rem;
+      cursor: pointer;
+    }
+
+    #guide {
+      padding: 0.5rem;
+      list-style: decimal;
+    }
+
+    #guide>* {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    #score {
+      font-size: 4rem;
+      margin: 2rem;
+      padding: 2rem;
+      color: #00A9FF;
+
+    }
+
+    #remark {
+      margin: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="can"></canvas>
+  <div id="start">
+    <div id="modalBackground" class="modal-background" onclick="play()"></div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h1 class="pV">ZRANG</h1>
+        <p class="p">Zombie Ranger</p>
+        <p id="guide-btn" onclick="expandGuide()">Guide To Play</p>
+        <div id="guide">
+          <li>You get scores by having your bullets hit zombies</li>
+          <li>Just tap in the direction the zombies are coming to shoot</li>
+          <li>If they get to you, your health decreases by 10%</li>
+          <li>If you can get up to 100 in score, an auto shooter friend (AI) would be by your side, killing the zombies</li>
+        </div>
+        <div class="play" onclick="play()">Play</div>
+      </div>
+    </div>
+  </div>
+  <div id="performance">
+    <div id="modalBackground" class="modal-background" onclick="restart()"></div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h1 class="pV">Game Over!</h1>
+        <p id="score"></p>
+        <p id="remark"></p>
+        <div class="play" onclick="restart()">Restart</div>
+      </div>
+    </div>
+  </div>
+  <div id="pause">
+    <div id="modalBackground" class="modal-background" onclick="unPause()"></div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h1>Game Paused</h1>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script>
+  function expandGuide() {
+    document.getElementById('guide').style.display = 'block';
+  }
+</script>
+<script src="zrang.js"></script>
